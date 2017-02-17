@@ -17,70 +17,68 @@ import javax.swing.JOptionPane;
  *
  * @author Alejandro
  */
-public class ListaDiccionario {
+public class ListaCusuarios {
     
-    public NodoDiccionario inicio;
-    public NodoDiccionario fin;
-    //variable para graficar la lista que contendran los nodos y las relaciones
+    //variables para los nodos de la lista circular
+    public NodoCusuarios inicio;
+    public NodoCusuarios fin;
+    
+    //variables para la grafica de la lista circular
     public String nodos;
     public String relacion;
     
-    public ListaDiccionario(){
+    public ListaCusuarios(){
         inicio = null;
         fin = null;
         nodos = "";
         relacion = "";
     }
     
-    //este metodo inserta las palabras al diccionario hasta el final
-    public void insertarPalabrafinal(String palabra){
-        NodoDiccionario nuevo = new NodoDiccionario(palabra, null);
+    //este metodo va agrega los nombres al final de la lista circular de usuarios
+    public void insertarNombre(String nombre){
+        NodoCusuarios nuevo = new NodoCusuarios(nombre,null);//recprdar que tienen que ser tres atributos porque tiene que tenes una lista de fichas como parametro
         
-        //aqui se verifica que la lista no este vacia y se craa su primer elemento
+        //reviasa que lal ista no este vacia 
         if(inicio == null){
+            inicio = nuevo;
             fin = nuevo;
-            inicio = fin;
-            
-        //aqui si no esta vacia la lista agragamos el nuevo nodo hasta el final
+            fin.siguiente = inicio;
         }else{
+            //aqui hacemos que el el apuntador del ultimo nodo apunte el nuevo
             fin.siguiente = nuevo;
-            fin = nuevo;
+            //aqui hacemos que el apuntador del nuevo nodo apunte a el inicio
+            nuevo.siguiente = inicio;
+            //aqui hacemos que el final sea el nuevo nodo
+            fin = nuevo;    
         }
     }
     
-    //este metodo se encarga de recorrer la lista
-    public void buscarPalabra(){
-        //aqui indicamos que estamos en el inicio de la lista
-        NodoDiccionario temp = inicio;
-        //aqui recomrremos la lista valor por valor
-        while(temp != null){
-            System.out .println(temp.palabra);
-            temp = temp .siguiente;
-        }
+    
+    public void buscarNombre(){
+        
+        NodoCusuarios temp = inicio;        
+        do{
+            System.out.println(temp.nombre);
+            temp = temp.siguiente;
+        }while(temp != inicio);
     }
     
-    //este metodo grafica la lista que contiene el diccionario de palabras
-    public void graficarDiccionario(){
-        String textographics ="";
-        String ruta="";
-        //solo grafica si la lista no esta vacia
-        if (inicio != null){
-            NodoDiccionario temp = inicio ;
-            temp.palabra = inicio.palabra;
-            while(temp != null){
-                //aqui creamos los nodos
-                nodos += temp.palabra +"\n";
-                if(temp.siguiente != null){
-                    //aqui creamos las relaciones
-                    relacion +=  "\"" +temp.palabra+ "\"" +"-->"+"\""+temp.siguiente.palabra+"\""+"\n";
-                }
+    public void graficarUsuarios(){
+        String textographics = "";
+        String rutausuarios = "";
+        
+        if(inicio != null){
+            NodoCusuarios temp = inicio;
+            do{
+                nodos += temp.nombre +"\n";
+                relacion +=  "\"" +temp.nombre+ "\"" +"--"+"\""+temp.siguiente.nombre+"\""+"\n";
                 temp = temp.siguiente;
-            }
+            }while(temp != inicio);
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
             JOptionPane.showMessageDialog(null, textographics);
-            ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Estructuras\\listadiccionario.dot";
+            rutausuarios = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Estructuras\\listausuarios.dot";
             
-            File archivo = new File(ruta);
+            File archivo = new File(rutausuarios);
             BufferedWriter escribir;
             try {
                 if ( archivo.exists()){
@@ -98,11 +96,10 @@ public class ListaDiccionario {
                 JOptionPane.showMessageDialog(null, ex, "nose pudo hacer el archivo", 0);
             }
         }
-        imagenDiccionario(ruta, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\listaDiccionario.jpg");
+        imagenUsuarios(rutausuarios, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\listausuarios.jpg");
     }
     
-    //crea la imagen de la lista de palabras
-    public void imagenDiccionario(String contenido, String ruta){
+    public void imagenUsuarios(String contenido, String ruta){
         String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
         String fileInputPath = contenido;
         String fileOutputPath = ruta;
@@ -125,7 +122,4 @@ public class ListaDiccionario {
             Logger.getLogger(ListaDiccionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
 }

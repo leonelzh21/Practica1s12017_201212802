@@ -5,6 +5,7 @@
  */
 package edd_scrabble;
 
+import Estructuras.ListaCusuarios;
 import Estructuras.ListaDiccionario;
 
 /**
@@ -18,6 +19,7 @@ public class Edd_Scrabble {
      */
     public static void main(String[] args) {
         ListaDiccionario lista = new ListaDiccionario();
+        ListaCusuarios listausuario = new ListaCusuarios();
         String num;
         for(int i = 0; i<10 ;i++){
             num = String.valueOf(i);
@@ -26,6 +28,13 @@ public class Edd_Scrabble {
         
         lista.buscarPalabra();
         lista.graficarDiccionario();
+        System.out.println("-----------------------------------------------------------------------------");
+        for(int j = 0 ;j <5;j++){
+            String nombre = String.valueOf(j);
+            listausuario.insertarNombre(nombre);
+        }
+        listausuario.buscarNombre();
+        listausuario.graficarUsuarios();
     }
     
 }
