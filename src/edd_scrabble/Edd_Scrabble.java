@@ -5,6 +5,8 @@
  */
 package edd_scrabble;
 
+import Estructuras.ListaDiccionario;
+
 /**
  *
  * @author Alejandro
@@ -15,7 +17,15 @@ public class Edd_Scrabble {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ListaDiccionario lista = new ListaDiccionario();
+        String num;
+        for(int i = 0; i<10 ;i++){
+            num = String.valueOf(i);
+            lista.insertarPalabrafinal(num);
+        }
+        
+        lista.buscarPalabra();
+        lista.graficarDiccionario();
     }
     
 }
