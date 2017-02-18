@@ -59,6 +59,16 @@ public class ListaDiccionario {
         }
     }
     
+    //este metodo extrae el valor inicial de la lista como si fuera una cola
+    public String extraerInicio(){
+        String letra = inicio.palabra;
+        inicio = inicio.siguiente;
+        if(inicio == null){
+            fin = null;
+        }
+        return letra;
+    }
+    
     //este metodo grafica la lista que contiene el diccionario de palabras
     public void graficarDiccionario(){
         String textographics ="";

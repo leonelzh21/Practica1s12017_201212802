@@ -7,6 +7,7 @@ package edd_scrabble;
 
 import Estructuras.ListaCusuarios;
 import Estructuras.ListaDiccionario;
+import Estructuras.MatrizTablero;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Edd_Scrabble {
     public static void main(String[] args) {
         ListaDiccionario lista = new ListaDiccionario();
         ListaCusuarios listausuario = new ListaCusuarios();
+        MatrizTablero matriz = new MatrizTablero();
         String num;
         for(int i = 0; i<10 ;i++){
             num = String.valueOf(i);
@@ -35,6 +37,8 @@ public class Edd_Scrabble {
         }
         listausuario.buscarNombre();
         listausuario.graficarUsuarios();
-    }
+        System.out.println("------------Empieza la Matriz-------------");
+        matriz.crearMatriz(4);
+    }  
     
 }
