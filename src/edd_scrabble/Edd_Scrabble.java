@@ -38,7 +38,7 @@ public class Edd_Scrabble {
         listausuario.buscarNombre();
         listausuario.graficarUsuarios();
         System.out.println("------------Empieza la Matriz-------------");
-        matriz.crearMatriz(20);
+        matriz.crearMatriz(4);
     }  
     
 }
