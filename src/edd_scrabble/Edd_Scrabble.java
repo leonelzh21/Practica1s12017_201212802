@@ -19,26 +19,9 @@ public class Edd_Scrabble {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ListaDiccionario lista = new ListaDiccionario();
-        ListaCusuarios listausuario = new ListaCusuarios();
-        MatrizTablero matriz = new MatrizTablero();
-        String num;
-        for(int i = 0; i<10 ;i++){
-            num = String.valueOf(i);
-            lista.insertarPalabrafinal(num);
-        }
-        
-        lista.buscarPalabra();
-        lista.graficarDiccionario();
-        System.out.println("-----------------------------------------------------------------------------");
-        for(int j = 0 ;j <5;j++){
-            String nombre = String.valueOf(j);
-            listausuario.insertarNombre(nombre);
-        }
-        listausuario.buscarNombre();
-        listausuario.graficarUsuarios();
-        System.out.println("------------Empieza la Matriz-------------");
-        matriz.crearMatriz(4);
+        InicioScrabble inicio = new InicioScrabble();
+        inicio.setVisible(true);
+        inicio.setLocationRelativeTo(null);
     }  
     
 }

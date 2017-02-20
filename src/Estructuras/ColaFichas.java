@@ -17,31 +17,30 @@ import javax.swing.JOptionPane;
  *
  * @author Alejandro
  */
-public class ListaDiccionario {
+public class ColaFichas {
     
-    public NodoDiccionario inicio;
-    public NodoDiccionario fin;
-    //variable para graficar la lista que contendran los nodos y las relaciones
+    public NodoFichas inicio;
+    public NodoFichas fin;
+    
     public String nodos;
     public String relacion;
-    
-    public ListaDiccionario(){
+  
+    public ColaFichas(){
         inicio = null;
         fin = null;
-        nodos = "";
+        nodos= "";
         relacion = "";
     }
     
-    //este metodo inserta las palabras al diccionario hasta el final
-    public void insertarPalabrafinal(String palabra){
-        NodoDiccionario nuevo = new NodoDiccionario(palabra, null);
+    public void insertarFichasfinal(String ficha){
+        NodoFichas nuevo = new NodoFichas(ficha, null);
         
-        //aqui se verifica que la lista no este vacia y se craa su primer elemento
+        //aqui se verifica que la cola no este vacia y se craa su primer elemento
         if(inicio == null){
             fin = nuevo;
             inicio = fin;
             
-        //aqui si no esta vacia la lista agragamos el nuevo nodo hasta el final
+        //aqui si no esta vacia la cola agragamos el nuevo nodo hasta el final
         }else{
             fin.siguiente = nuevo;
             fin = nuevo;
@@ -49,19 +48,19 @@ public class ListaDiccionario {
     }
     
     //este metodo se encarga de recorrer la lista
-    public void buscarPalabra(){
-        //aqui indicamos que estamos en el inicio de la lista
-        NodoDiccionario temp = inicio;
+    public void buscarFichas(){
+        //aqui indicamos que estamos en el inicio de la cola
+        NodoFichas temp = inicio;
         //aqui recomrremos la lista valor por valor
         while(temp != null){
-            System.out .println(temp.palabra);
+            System.out .println(temp.ficha);
             temp = temp .siguiente;
         }
     }
     
-    //este metodo extrae el valor inicial de la lista como si fuera una cola
+    //este metodo extrae el valor inicial de la cola como 
     public String extraerInicio(){
-        String letra = inicio.palabra;
+        String letra = inicio.ficha;
         inicio = inicio.siguiente;
         if(inicio == null){
             fin = null;
@@ -69,26 +68,26 @@ public class ListaDiccionario {
         return letra;
     }
     
-    //este metodo grafica la lista que contiene el diccionario de palabras
-    public void graficarDiccionario(){
+    
+    public void graficasFichas(){
         String textographics ="";
         String ruta="";
         //solo grafica si la lista no esta vacia
         if (inicio != null){
-            NodoDiccionario temp = inicio ;
-            temp.palabra = inicio.palabra;
+            NodoFichas temp = inicio ;
+            temp.ficha = inicio.ficha;
             while(temp != null){
                 //aqui creamos los nodos
-                nodos += temp.palabra +"\n";
+                nodos += temp.ficha +";"+"\n";
                 if(temp.siguiente != null){
                     //aqui creamos las relaciones
-                    relacion +=  "\"" +temp.palabra+ "\"" +"--"+"\""+temp.siguiente.palabra+"\""+"\n";
+                    relacion +=  temp.ficha +"--"+temp.siguiente.ficha+";"+"\n";
                 }
                 temp = temp.siguiente;
             }
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
             JOptionPane.showMessageDialog(null, textographics);
-            ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\listadiccionario.dot";
+            ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\fichas.dot";
             
             File archivo = new File(ruta);
             BufferedWriter escribir;
@@ -108,11 +107,11 @@ public class ListaDiccionario {
                 JOptionPane.showMessageDialog(null, ex, "nose pudo hacer el archivo", 0);
             }
         }
-        imagenDiccionario(ruta, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\listaDiccionario.jpg");
+        imagenFichas(ruta, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\fichas.jpg");
     }
     
-    //crea la imagen de la lista de palabras
-    public void imagenDiccionario(String contenido, String ruta){
+    
+    public void imagenFichas(String contenido, String ruta){
         String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
         String fileInputPath = contenido;
         String fileOutputPath = ruta;
@@ -135,7 +134,4 @@ public class ListaDiccionario {
             Logger.getLogger(ListaDiccionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
 }
