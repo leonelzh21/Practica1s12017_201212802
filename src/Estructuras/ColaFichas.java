@@ -86,7 +86,7 @@ public class ColaFichas {
                 temp = temp.siguiente;
             }
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
-            JOptionPane.showMessageDialog(null, textographics);
+            //JOptionPane.showMessageDialog(null, textographics);
             ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\fichas.dot";
             
             File archivo = new File(ruta);

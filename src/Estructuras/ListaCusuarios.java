@@ -35,8 +35,8 @@ public class ListaCusuarios {
     }
     
     //este metodo va agrega los nombres al final de la lista circular de usuarios
-    public void insertarNombre(String nombre){
-        NodoCusuarios nuevo = new NodoCusuarios(nombre,null);//recprdar que tienen que ser tres atributos porque tiene que tenes una lista de fichas como parametro
+    public void insertarNombre(String nombre, ListaDiccionario list){
+        NodoCusuarios nuevo = new NodoCusuarios(nombre,null,list);//recprdar que tienen que ser tres atributos porque tiene que tenes una lista de fichas como parametro
         
         //reviasa que lal ista no este vacia 
         if(inicio == null){
@@ -54,13 +54,21 @@ public class ListaCusuarios {
     }
     
     
-    public void buscarNombre(){
+    public boolean buscarNombre(String nombre){
         
-        NodoCusuarios temp = inicio;        
-        do{
-            System.out.println(temp.nombre);
-            temp = temp.siguiente;
-        }while(temp != inicio);
+        NodoCusuarios temp = inicio;
+        if(temp != null){
+            do{
+                if(temp.nombre.equals(nombre)){
+                    temp = inicio;
+                    return true;
+                }else{
+                    return false;
+                }
+            }while(temp != inicio);
+        }else{
+            return false;
+        }
     }
     
     public void graficarUsuarios(){
@@ -76,7 +84,7 @@ public class ListaCusuarios {
             }while(temp != inicio);
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
             JOptionPane.showMessageDialog(null, textographics);
-            rutausuarios = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Estructuras\\listausuarios.dot";
+            rutausuarios = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\listausuarios.dot";
             
             File archivo = new File(rutausuarios);
             BufferedWriter escribir;

@@ -12,9 +12,11 @@ package Estructuras;
 public class NodoCusuarios {
     public String nombre;
     public NodoCusuarios siguiente;
+    public ListaDiccionario listafichas = new ListaDiccionario();
     
-    public NodoCusuarios(String n,NodoCusuarios s) {
+    public NodoCusuarios(String n,NodoCusuarios s, ListaDiccionario lista) {
         nombre = n;
         siguiente = s;
+        listafichas = lista;
     }
 }

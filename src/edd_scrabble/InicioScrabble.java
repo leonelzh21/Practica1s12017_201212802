@@ -89,7 +89,7 @@ public class InicioScrabble extends javax.swing.JFrame {
 
     private void btnleerarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnleerarchivoActionPerformed
         String rutaarchivo="";
-        
+        String rutaasignada = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\listaDiccionario.jpg";
         JFileChooser Archivo = new JFileChooser();
         Archivo.setFileSelectionMode( JFileChooser.FILES_ONLY );
         int selecarchivo = Archivo.showOpenDialog( this );
@@ -104,15 +104,15 @@ public class InicioScrabble extends javax.swing.JFrame {
         }
         
         XML archivoxml = new XML(rutaarchivo);
-        diccionarioglobal.graficarDiccionario();
+        //aqui asignamos el nombre y la ruta para graficar la lista de palabras del diccionario
+        diccionarioglobal.graficarDiccionario("listadiccionario.dot",rutaasignada);
         llenacolaFichas();
         
     }//GEN-LAST:event_btnleerarchivoActionPerformed
 
     private void btnjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjugarActionPerformed
-        Random rnd = new Random();
-        int numero = rnd.nextInt(2+1);
-        System.out.println(numero);
+        IngresoUsuarios usuario = new IngresoUsuarios();
+        usuario.setVisible(true);
     }//GEN-LAST:event_btnjugarActionPerformed
 
     /**
