@@ -99,7 +99,7 @@ public class IngresoUsuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ESTE USUARIO YA EXISTE INTENTALO DE NUEVO");
         }else {
             //aqui se manda como parametro el nombre del usuario ingresado y su lista de fichas
-            listausuarios.insertarNombre(nombre,asignarFichas(nombre));
+            listausuarios.insertarNombre(nombre,asignarFichas());
         }
     }//GEN-LAST:event_btnagregarjugadorActionPerformed
 
@@ -108,6 +108,7 @@ public class IngresoUsuarios extends javax.swing.JFrame {
         InicioScrabble.fichas.graficasFichas();
         Tablero tabler = new Tablero();
         tabler.setVisible(true);
+        tabler.primerUsuario();
     }//GEN-LAST:event_btnlistoActionPerformed
 
     /**
@@ -146,13 +147,13 @@ public class IngresoUsuarios extends javax.swing.JFrame {
     }
     
     //metodo que devuleve una lista con las fichas asignadas para cada jugador
-    public ListaDiccionario asignarFichas(String nombrelista){
+    public ListaDiccionario asignarFichas(){
         ListaDiccionario lista = new ListaDiccionario();
         for(int i = 0; i<7;i++ ){
-            lista.insertarPalabrafinal(InicioScrabble.fichas.extraerInicio());
+            lista.insertarfichas(InicioScrabble.fichas.extraerInicio());
             
         }
-        lista.graficarDiccionario();
+        lista.graficarf();
         return lista;
     }
 

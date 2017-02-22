@@ -5,6 +5,7 @@
  */
 package Estructuras;
 
+import edd_scrabble.Tablero;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -22,7 +23,7 @@ public class ListaCusuarios {
     //variables para los nodos de la lista circular
     public NodoCusuarios inicio;
     public NodoCusuarios fin;
-    
+    public NodoCusuarios usuariotemporal;
     //variables para la grafica de la lista circular
     public String nodos;
     public String relacion;
@@ -84,7 +85,7 @@ public class ListaCusuarios {
             }while(temp != inicio);
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
             JOptionPane.showMessageDialog(null, textographics);
-            rutausuarios = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\listausuarios.dot";
+            rutausuarios = "C:\\Users\\Leonel\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\listausuarios.dot";
             
             File archivo = new File(rutausuarios);
             BufferedWriter escribir;
@@ -104,7 +105,7 @@ public class ListaCusuarios {
                 JOptionPane.showMessageDialog(null, ex, "nose pudo hacer el archivo", 0);
             }
         }
-        imagenUsuarios(rutausuarios, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\listausuarios.jpg");
+        imagenUsuarios(rutausuarios, "C:\\Users\\Leonel\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\listausuarios.jpg");
     }
     
     public void imagenUsuarios(String contenido, String ruta){
@@ -129,5 +130,27 @@ public class ListaCusuarios {
         } catch (IOException ex) {
             Logger.getLogger(ListaDiccionario.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String cambiarturno(int cambio){
+        String nombre = "";
+        Tablero tab = new Tablero ();
+        if(cambio == 1){
+            usuariotemporal = inicio.siguiente;
+            usuariotemporal.listafichas.graficarf();
+            nombre = usuariotemporal.nombre;
+            usuariotemporal = usuariotemporal.siguiente;
+            return nombre;
+        }else{
+            usuariotemporal.listafichas.graficarf();
+            nombre = usuariotemporal.nombre;
+            usuariotemporal = usuariotemporal.siguiente;
+            return nombre;
+        }
+    }
+    
+    public String primerUsuario(){
+        NodoCusuarios temp = inicio;
+        return temp.nombre;
     }
 }

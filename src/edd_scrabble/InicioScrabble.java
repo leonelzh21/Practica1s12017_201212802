@@ -191,121 +191,145 @@ public class InicioScrabble extends javax.swing.JFrame {
                         fichas.insertarFichasfinal("B");
                         cantidadB--;
                     }
+                break;
                 case 3:
                     if(cantidadC > 0){
                         fichas.insertarFichasfinal("C");
                         cantidadC--;
                     }
+                break;
                 case 4:
                     if(cantidadD > 0){
                         fichas.insertarFichasfinal("D");
                         cantidadD--;
                     }
+                break;
                 case 5:
                     if(cantidadE >0){
                         fichas.insertarFichasfinal("E");
                         cantidadE--;
                     }
+                break;
                 case 6:
                     if(cantidadF > 0){
                         fichas.insertarFichasfinal("F");
                         cantidadF--;
                     }
+                break;
                 case 7:
                     if(cantidadG > 0){
                         fichas.insertarFichasfinal("G");
                         cantidadG--;
                     }
+                break;
                 case 8:
                     if(cantidadH > 0){
                         fichas.insertarFichasfinal("H");
                         cantidadH--;
                     }
+                break;
                 case 9:
                     if(cantidadI > 0){
                         fichas.insertarFichasfinal("I");
                         cantidadI--;
                     }
+                break;
                 case 10:
                     if(cantidadJ > 0){
                         fichas.insertarFichasfinal("J");
                         cantidadJ--;
                     }
+                break;
                 case 11:
                     if(cantidadL > 0){
                         fichas.insertarFichasfinal("L");
                         cantidadL--;
                     }
+                break;
                 case 12:
                     if(cantidadM > 0){
                         fichas.insertarFichasfinal("M");
                         cantidadM--;
                     }
+                break;
                 case 13:
                     if(cantidadN > 0){
                         fichas.insertarFichasfinal("N");
                         cantidadN--;
                     }
+                break;
                 case 14:
                     if(cantidadO > 0){
                         fichas.insertarFichasfinal("O");
                         cantidadO--;
                     }
+                break;
                 case 15:
                     if(cantidadP > 0){
                         fichas.insertarFichasfinal("P");
                         cantidadP--;
                     }
+                break;
                 case 16:
                     if(cantidadQ >0){
                         fichas.insertarFichasfinal("Q");
                         cantidadQ--;
                     }
+                break;
                 case 17:
                     if(cantidadR > 0){
                         fichas.insertarFichasfinal("R");
                         cantidadR--;
                     }
+                break;
                 case 18:
                     if(cantidadS >0){
                         fichas.insertarFichasfinal("S");
                         cantidadS--;
                     }
+                break;
                 case 19:
                     if(cantidadT >0){
                         fichas.insertarFichasfinal("T");
                         cantidadT--;
                     }
+                break;
                 case 20:
                     if(cantidadU >0){
                         fichas.insertarFichasfinal("U");
                         cantidadU--;
                     }
+                break;
                 case 21:
                     if(cantidadV >0){
                         fichas.insertarFichasfinal("V");
                         cantidadV--;
                     }
+                break;
                 case 22:
                     if(cantidadX >0){
                         fichas.insertarFichasfinal("X");
                         cantidadX--;
                     }
+                break;
                 case 23:
                     if(cantidadY >0){
                         fichas.insertarFichasfinal("Y");
                         cantidadY--;
                     }
+                break;
                 case 24:
                     if(cantidadZ > 0){
                         fichas.insertarFichasfinal("Z");
                         cantidadZ--;
                     }
+                break;
                 case 25:
                     if(cantidadÑ >0){
                         fichas.insertarFichasfinal("Ñ");
                         cantidadÑ--;
                     }
+                break;
             }
             
         }

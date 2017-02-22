@@ -5,6 +5,7 @@
  */
 package edd_scrabble;
 
+import Estructuras.MatrizTablero;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.Attributes;
@@ -54,6 +55,8 @@ public class XML {
                 public void characters(char ch[], int start, int length) throws SAXException{
                     if(diemension){
                         System.out.println("dimension:"+" "+new String(ch,start,length));
+                        MatrizTablero matriz = new MatrizTablero();
+                        matriz.crearMatriz(Integer.parseInt(new String(ch,start,length)));
                         diemension = false;
                     }
                     if(casilla){

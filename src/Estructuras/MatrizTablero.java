@@ -144,7 +144,7 @@ public class MatrizTablero {
     
     public void graficarMatriz(){
         String textographics = "graph G"+"{"+"\n"+nodos+relaciones+"}";
-        String ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Estructuras\\MatrizTalbero.dot";
+        String ruta = "C:\\Users\\Leonel\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\MatrizTalbero.dot";
         
         File archivo = new File(ruta);
             BufferedWriter escribir;
@@ -163,7 +163,7 @@ public class MatrizTablero {
                 Logger.getLogger(ListaDiccionario.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, ex, "nose pudo hacer el archivo", 0);
             }
-            imagenMatriz(ruta,"C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\Matriz.jpg");
+            imagenMatriz(ruta,"C:\\Users\\Leonel\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\Matriz.jpg");
             
     }
     

@@ -91,7 +91,7 @@ public class ColaFichas {
             }
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
             //JOptionPane.showMessageDialog(null, textographics);
-            ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\fichas.dot";
+            ruta = "C:\\Users\\Leonel\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\fichas.dot";
             
             File archivo = new File(ruta);
             BufferedWriter escribir;
@@ -114,7 +114,7 @@ public class ColaFichas {
                 JOptionPane.showMessageDialog(null, ex, "nose pudo hacer el archivo", 0);
             }
         }
-        imagenFichas(ruta, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\fichas.jpg");
+        imagenFichas(ruta, "C:\\Users\\Leonel\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\fichas.jpg");
     }
     
     
