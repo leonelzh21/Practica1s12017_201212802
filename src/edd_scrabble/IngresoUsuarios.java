@@ -105,6 +105,9 @@ public class IngresoUsuarios extends javax.swing.JFrame {
 
     private void btnlistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistoActionPerformed
         listausuarios.graficarUsuarios();
+        InicioScrabble.fichas.graficasFichas();
+        Tablero tabler = new Tablero();
+        tabler.setVisible(true);
     }//GEN-LAST:event_btnlistoActionPerformed
 
     /**
@@ -149,8 +152,7 @@ public class IngresoUsuarios extends javax.swing.JFrame {
             lista.insertarPalabrafinal(InicioScrabble.fichas.extraerInicio());
             
         }
-        InicioScrabble.fichas.graficasFichas();
-        lista.graficarDiccionario("Lista"+nombrelista+".dot", "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\"+nombrelista+".jpg");
+        lista.graficarDiccionario();
         return lista;
     }
 

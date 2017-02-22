@@ -70,7 +70,7 @@ public class ListaDiccionario {
     }
     
     //este metodo grafica la lista que contiene el diccionario de palabras
-    public void graficarDiccionario(String nombrearchivo , String rutaimagen){
+    public void graficarDiccionario(){
         String textographics ="";
         String ruta="";
         //solo grafica si la lista no esta vacia
@@ -88,7 +88,7 @@ public class ListaDiccionario {
             }
             textographics = "graph G" +"{"+"\n"+ nodos+relacion+"}";
             JOptionPane.showMessageDialog(null, textographics);
-            ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\"+nombrearchivo;
+            ruta = "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Documentos\\Lista.dot";
             
             File archivo = new File(ruta);
             BufferedWriter escribir;
@@ -97,6 +97,8 @@ public class ListaDiccionario {
                     FileWriter escritor = new FileWriter(archivo);
                     escribir = new BufferedWriter(escritor);
                     escribir.write(textographics);
+                    nodos = "";
+                    relacion = "";
                 }else{
                     FileWriter escritor = new FileWriter(archivo);
                     escribir = new BufferedWriter(escritor);
@@ -108,7 +110,7 @@ public class ListaDiccionario {
                 JOptionPane.showMessageDialog(null, ex, "nose pudo hacer el archivo", 0);
             }
         }
-        imagenDiccionario(ruta, rutaimagen);
+        imagenDiccionario(ruta, "C:\\Users\\Alejandro\\Documents\\NetBeansProjects\\Edd_Scrabble\\src\\Imagenes\\Lista.jpg");
     }
     
     //crea la imagen de la lista de palabras

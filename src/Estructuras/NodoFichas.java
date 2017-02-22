@@ -13,10 +13,12 @@ public class NodoFichas {
     
     public String ficha;
     public NodoFichas siguiente;
+    public int id;
     
-    public NodoFichas(String p , NodoFichas s){
+    public NodoFichas(String p , NodoFichas s,int i){
         ficha = p;
         siguiente = s;
+        id = i;
     }
     
 }

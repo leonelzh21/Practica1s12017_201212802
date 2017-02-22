@@ -1,8 +1,10 @@
 graph G{
 Leonel
 Andrea
+Alejandro
 Mynor
 "Leonel"--"Andrea"
-"Andrea"--"Mynor"
+"Andrea"--"Alejandro"
+"Alejandro"--"Mynor"
 "Mynor"--"Leonel"
 }

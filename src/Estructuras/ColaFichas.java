@@ -5,8 +5,11 @@
  */
 package Estructuras;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,7 +24,7 @@ public class ColaFichas {
     
     public NodoFichas inicio;
     public NodoFichas fin;
-    
+    public int id;
     public String nodos;
     public String relacion;
   
@@ -30,11 +33,12 @@ public class ColaFichas {
         fin = null;
         nodos= "";
         relacion = "";
+        id = 1;
     }
     
     public void insertarFichasfinal(String ficha){
-        NodoFichas nuevo = new NodoFichas(ficha, null);
-        
+        NodoFichas nuevo = new NodoFichas(ficha, null,id);
+        id++;
         //aqui se verifica que la cola no este vacia y se craa su primer elemento
         if(inicio == null){
             fin = nuevo;
@@ -78,10 +82,10 @@ public class ColaFichas {
             temp.ficha = inicio.ficha;
             while(temp != null){
                 //aqui creamos los nodos
-                nodos += temp.ficha +";"+"\n";
+                nodos += temp.ficha+temp.id +";"+"\n";
                 if(temp.siguiente != null){
                     //aqui creamos las relaciones
-                    relacion +=  temp.ficha +"--"+temp.siguiente.ficha+";"+"\n";
+                    relacion +=  temp.ficha+temp.id +"--"+temp.siguiente.ficha+temp.siguiente.id+";"+"\n";
                 }
                 temp = temp.siguiente;
             }
@@ -96,10 +100,13 @@ public class ColaFichas {
                     FileWriter escritor = new FileWriter(archivo);
                     escribir = new BufferedWriter(escritor);
                     escribir.write(textographics);
+                    nodos = "";
+                    relacion = "";
                 }else{
                     FileWriter escritor = new FileWriter(archivo);
                     escribir = new BufferedWriter(escritor);
                     escribir.write(textographics);
+                    textographics = "";
                 }
                 escribir.close();
             } catch (IOException ex) {
